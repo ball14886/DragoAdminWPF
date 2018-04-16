@@ -27,11 +27,12 @@ namespace DragoAdminWPF.Connex
             InitializeComponent();
         }
 
-        public async void BindData(string searchKeyWord)
+        private async void BindData(string searchKeyWord)
         {
             Task<List<DragoConnex>> DragoConnexListAsTask = new DragoConnexProvider().GetDragoconnexesAsync();
             dragoConnexes = await DragoConnexListAsTask;
             ConnexGridview.ItemsSource = dragoConnexes.Where(x => x.AreaDescription.ToUpper().Contains(searchKeyWord) || x.DragoConnexID.ToUpper().Contains(searchKeyWord)).ToList();
+            dragoConnexes = ConnexGridview.ItemsSource as List<DragoConnex>;
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
@@ -60,6 +61,31 @@ namespace DragoAdminWPF.Connex
             {
                 SearchTextBox.Text = SearchTextBox.Text.Trim();
             }
+        }
+
+        private void DeleteConnexButton_Click(object sender, RoutedEventArgs e)
+        {
+            RadioButton deletingDragoConnex = sender as RadioButton;
+            string deletingDragoConnexID = (deletingDragoConnex.DataContext as DragoConnex).DragoConnexID ?? "";
+            if (!string.IsNullOrEmpty(deletingDragoConnexID))
+            {
+                string messageBoxText = "Confirm delete DragoConnex?";
+                string caption = string.Format("Delete DragoConnex");
+                MessageBoxButton button = MessageBoxButton.OKCancel;
+                MessageBoxImage icon = MessageBoxImage.Warning;
+                MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon);
+
+                if (result == MessageBoxResult.OK)
+                {
+                    DeleteDragoConnexAsync(deletingDragoConnexID);
+                    ConnexGridview.ItemsSource = dragoConnexes;
+                }
+            }
+        }
+
+        private async void DeleteDragoConnexAsync(string dragoConnexID)
+        {
+            await new DragoConnexProvider().DeleteDragoConnexAsync(dragoConnexID);
         }
     }
 }
