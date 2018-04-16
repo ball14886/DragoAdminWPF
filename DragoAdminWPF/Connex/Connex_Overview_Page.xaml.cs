@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Telerik.Windows.Controls;
 
 namespace DragoAdminWPF.Connex
 {
@@ -65,15 +66,14 @@ namespace DragoAdminWPF.Connex
 
         private void DeleteConnexButton_Click(object sender, RoutedEventArgs e)
         {
-            RadioButton deletingDragoConnex = sender as RadioButton;
+            RadButton deletingDragoConnex = sender as RadButton;
             string deletingDragoConnexID = (deletingDragoConnex.DataContext as DragoConnex).DragoConnexID ?? "";
             if (!string.IsNullOrEmpty(deletingDragoConnexID))
             {
-                string messageBoxText = "Confirm delete DragoConnex?";
-                string caption = string.Format("Delete DragoConnex");
-                MessageBoxButton button = MessageBoxButton.OKCancel;
-                MessageBoxImage icon = MessageBoxImage.Warning;
-                MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon);
+                MessageBoxResult result = MessageBox.Show("Confirm delete DragoConnex?"
+                                                          , "Delete DragoConnex"
+                                                          , MessageBoxButton.OKCancel
+                                                          , MessageBoxImage.Warning);
 
                 if (result == MessageBoxResult.OK)
                 {
@@ -86,6 +86,132 @@ namespace DragoAdminWPF.Connex
         private async void DeleteDragoConnexAsync(string dragoConnexID)
         {
             await new DragoConnexProvider().DeleteDragoConnexAsync(dragoConnexID);
+        }
+
+        private void CreateConfigButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Confirm create config files?"
+                                                      , "Create Config Files"
+                                                      , MessageBoxButton.YesNo
+                                                      , MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                string dragoConnexID = "";
+                RadButton dragoConnexButton = sender as RadButton;
+                dragoConnexID = (dragoConnexButton.DataContext as DragoConnex).DragoConnexID ?? "";
+                if (!string.IsNullOrEmpty(dragoConnexID))
+                {
+                    DragoConnex target = GetDragoconnexAsync(dragoConnexID).Result;
+                    if (target != null)
+                    {
+                        if (string.IsNullOrEmpty(target.DragoSetting))
+                        {
+                            MessageBox.Show("DragoConnex has no Setting specified"
+                                            , "Create Config Files"
+                                            , MessageBoxButton.OK
+                                            , MessageBoxImage.Warning);
+                        }
+                        else
+                        {
+                            CreateConfigFile(target.DragoSetting, target.DragoConnexID);
+                            ///continue fixing config file
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid DragoConnex ID"
+                                    , "Create Config Files"
+                                    , MessageBoxButton.OK
+                                    , MessageBoxImage.Warning);
+                }
+            }
+        }
+
+        private async Task<DragoConnex> GetDragoconnexAsync(string dragoConnexID)
+        {
+            var dragoConnex = await new DragoConnexProvider().GetDragoconnexAsync(dragoConnexID);
+            return dragoConnex as DragoConnex;
+        }
+
+        async void CreateConfigFile(string setting, string dragoConnexCode)
+        {
+            DialogResult result = FolderBrowserDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                var configFolder = FolderBrowserDialog.SelectedPath + @"\Config" + dragoConnexCode + @"\";
+                System.IO.Directory.CreateDirectory(configFolder);
+
+                Dictionary<string, string> dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(setting);
+                string toWrite = "";
+                foreach (var item in dict.Reverse().Skip(2).Reverse())
+                {
+                    if (string.IsNullOrEmpty(item.Value))
+                    {
+                        toWrite += "\"" + System.Environment.NewLine;
+                    }
+                    else
+                    {
+                        if (!item.Key.Equals("AlarmSetting") || !item.Key.Equals("AMRSetting"))
+                        {
+                            toWrite += item.Value + System.Environment.NewLine;
+                        }
+                    }
+                }
+
+                toWrite = toWrite.Remove(toWrite.Length - 1);
+                toWrite += System.Environment.NewLine;
+                File.WriteAllText(configFolder + "NETWORK.csv", toWrite);
+                MeterProvider MeterProvider = new Provider.MeterProvider();
+                var toWriteWatt = "";
+                toWrite = "";
+                var meters = await MeterProvider.GetMetersAsync("http://dragoservices.azurewebsites.net/api/DragoAdmin/Meters/DragoConnex/" + dragoConnexCode);
+                if (meters != null)
+                {
+                    foreach (var meter in meters)
+                    {
+                        Dictionary<string, string> dictMeter = JsonConvert.DeserializeObject<Dictionary<string, string>>(meter.MeterSetting);
+                        foreach (var item in dictMeter)
+                        {
+
+                            toWrite += item.Value + ",";
+
+                        }
+
+                        toWrite = toWrite.Remove(toWrite.Length - 1);
+                        toWrite += System.Environment.NewLine;
+                    }
+
+                    File.WriteAllText(configFolder + "METER.csv", toWrite);
+                }
+                var dictAlarmSetting = JsonConvert.DeserializeObject<Dictionary<string, string>>(dict["AlarmSetting"]);
+                toWrite = "";
+                foreach (var item in dictAlarmSetting)
+                {
+                    if (String.IsNullOrEmpty(item.Value))
+                        toWrite += "0" + ",";
+                    else
+                        toWrite += item.Value + ",";
+                }
+                toWrite = toWrite.Remove(toWrite.Length - 1);
+                toWrite += System.Environment.NewLine;
+
+                File.WriteAllText(configFolder + "ALARM.csv", toWrite);
+
+                var dictAMRSetting = JsonConvert.DeserializeObject<Dictionary<string, string>>(dict["AMRSetting"]);
+                toWrite = "";
+                foreach (var item in dictAMRSetting)
+                {
+                    if (String.IsNullOrEmpty(item.Value))
+                        toWrite += "0" + System.Environment.NewLine;
+                    else
+                        toWrite += item.Value + System.Environment.NewLine;
+                }
+                //toWrite = toWrite.Remove(toWrite.Length - 1);
+                File.WriteAllText(configFolder + "AMR.csv", toWrite);
+            }
         }
     }
 }

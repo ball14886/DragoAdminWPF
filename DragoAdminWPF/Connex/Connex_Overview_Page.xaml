@@ -96,7 +96,8 @@
                                                        VerticalContentAlignment="Center"
                                                        HorizontalAlignment="Center"
                                                        HorizontalContentAlignment="Center"
-                                                       Content="Create Config"/>
+                                                       Content="Create Config"
+                                                       Click="CreateConfigButton_Click"/>
                                 </DataTemplate>
                             </telerik:GridViewColumn.CellTemplate>
                         </telerik:GridViewColumn>
