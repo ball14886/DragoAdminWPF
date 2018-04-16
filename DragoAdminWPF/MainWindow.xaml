@@ -4,9 +4,45 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DragoAdminWPF"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        WindowState="Maximized"
+        Title="MainWindow">
+    <Grid Height="auto" 
+          Width="auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <telerik:RadButton Name="LogouButton" 
+                           Grid.Row="0"
+                           HorizontalAlignment="Right"
+                           Content="Logout"
+                           Margin="0,0,10,10"
+                           Width="100"
+                           Click="LogouButton_Click"/>
+        <telerik:RadMenu Name="MenuBar"
+                         Grid.Row="1">
+            <telerik:RadMenuItem Name="Dashboard" 
+                                 Header="Dashboard"/>
+            <telerik:RadMenuItem Name="Owner" 
+                                 Header="Owner"/>
+            <telerik:RadMenuItem Name="Site" 
+                                 Header="Site"/>
+            <telerik:RadMenuItem Name="Area" 
+                                 Header="Area"/>
+            <telerik:RadMenuItem Name="Connex" 
+                                 Header="Connex"
+                                 Click="Connex_Click"/>
+            <telerik:RadMenuItem Name="Meter" 
+                                 Header="Meter"/>
+            <telerik:RadMenuItem Name="Electric" 
+                                 Header="Electric"/>
+        </telerik:RadMenu>
+        <Frame Grid.Row="2" 
+               Name="MainFrame" 
+               HorizontalAlignment="Stretch" 
+               VerticalAlignment="Stretch"/>
     </Grid>
 </Window>

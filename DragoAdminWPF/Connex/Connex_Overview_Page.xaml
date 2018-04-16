@@ -1,0 +1,120 @@
+﻿<Page x:Class="DragoAdminWPF.Connex.Connex_Overview_Page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DragoAdminWPF.Connex"
+      xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Connex_Overview_Page">
+
+    <Grid Margin="10">
+        <telerik:RadBusyIndicator Name="BusyIndicator">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0"
+                       Text="DragoConnex ID"
+                       VerticalAlignment="Center"
+                       Margin="0,0,10,0"/>
+                    <TextBox Grid.Column="1"
+                     Name="SearchTextBox"
+                     LostFocus="SearchTextBox_LostFocus"
+                     Margin="0,0,10,0"/>
+                    <telerik:RadButton Grid.Column="2"
+                               Name="SearchButton"
+                               Content="Search"
+                               Width="200"
+                               Click="SearchButton_Click"/>
+                </Grid>
+                <telerik:RadGridView Grid.Row="1"
+                             Name="ConnexGridview"
+                             ShowGroupPanel="False"
+                             Margin="0,10,0,0"
+                             RowIndicatorVisibility="Collapsed"
+                             CanUserFreezeColumns="False"
+                             CanUserReorderColumns="False"
+                             AutoGenerateColumns="False"
+                             ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <telerik:RadGridView.Columns>
+                        <telerik:GridViewDataColumn UniqueName="DragoConnexIDColumn"
+                                            Name="DragoConnexIDColumn"
+                                            Header="DragoConnex ID"
+                                            Width="1*"
+                                            IsReadOnly="True"
+                                            DataMemberBinding="{Binding Path=DragoConnexID}"
+                                            HeaderTextAlignment="Center"/>
+                        <telerik:GridViewDataColumn UniqueName="AreaColumn"
+                                            Name="AreaColumn"
+                                            Header="Area"
+                                            Width="1*"
+                                            IsReadOnly="True"
+                                            DataMemberBinding="{Binding Path=AreaDescription}"
+                                            HeaderTextAlignment="Center"/>
+                        <telerik:GridViewColumn>
+                            <telerik:GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <telerik:RadButton Name="EditConnexButton"
+                                               Width="100"
+                                               VerticalAlignment="Center"
+                                               VerticalContentAlignment="Center"
+                                               HorizontalAlignment="Center"
+                                               HorizontalContentAlignment="Center"
+                                               Content="Edit"/>
+                                </DataTemplate>
+                            </telerik:GridViewColumn.CellTemplate>
+                        </telerik:GridViewColumn>
+                        <telerik:GridViewColumn>
+                            <telerik:GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <telerik:RadButton Name="DeleteConnexButton"
+                                               Width="100"
+                                               VerticalAlignment="Center"
+                                               VerticalContentAlignment="Center"
+                                               HorizontalAlignment="Center"
+                                               HorizontalContentAlignment="Center"
+                                               Content="Delete"/>
+                                </DataTemplate>
+                            </telerik:GridViewColumn.CellTemplate>
+                        </telerik:GridViewColumn>
+                        <telerik:GridViewColumn>
+                            <telerik:GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <telerik:RadButton Name="CreateConfigButton"
+                                               Width="100"
+                                               VerticalAlignment="Center"
+                                               VerticalContentAlignment="Center"
+                                               HorizontalAlignment="Center"
+                                               HorizontalContentAlignment="Center"
+                                               Content="Create Config"/>
+                                </DataTemplate>
+                            </telerik:GridViewColumn.CellTemplate>
+                        </telerik:GridViewColumn>
+                        <telerik:GridViewColumn>
+                            <telerik:GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <telerik:RadButton Name="AddMeterButton"
+                                               Width="100"
+                                               VerticalAlignment="Center"
+                                               VerticalContentAlignment="Center"
+                                               HorizontalAlignment="Center"
+                                               HorizontalContentAlignment="Center"
+                                               Content="Add Meter"/>
+                                </DataTemplate>
+                            </telerik:GridViewColumn.CellTemplate>
+                        </telerik:GridViewColumn>
+                    </telerik:RadGridView.Columns>
+                </telerik:RadGridView>
+            </Grid>
+        </telerik:RadBusyIndicator>
+    </Grid>
+</Page>

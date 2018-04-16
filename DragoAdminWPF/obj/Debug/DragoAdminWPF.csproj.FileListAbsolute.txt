@@ -153,3 +153,17 @@ D:\Projects\Drago\DragoAdmin\DragoAdminWPF\DragoAdminWPF\obj\Debug\DragoAdminWPF
 D:\Projects\Drago\DragoAdmin\DragoAdminWPF\DragoAdminWPF\obj\Debug\DragoAdminWPF.pdb
 D:\Projects\Drago\DragoAdmin\DragoAdminWPF\DragoAdminWPF\obj\Debug\DragoAdminWPF_Content.g.cs
 D:\Projects\Drago\DragoAdmin\DragoAdminWPF\DragoAdminWPF\obj\Debug\DragoAdminWPF.csprojResolveAssemblyReference.cache
+D:\Projects\Drago\DragoAdmin\DragoAdminWPF\DragoAdminWPF\obj\Debug\Connex\Connex_Config_Page.g.cs
+D:\Projects\Drago\DragoAdmin\DragoAdminWPF\DragoAdminWPF\obj\Debug\Connex\Connex_Overview_Page.g.cs
+D:\Projects\Drago\DragoAdmin\DragoAdminWPF\DragoAdminWPF\obj\Debug\Connex\Connex_Config_Page.baml
+D:\Projects\Drago\DragoAdmin\DragoAdminWPF\DragoAdminWPF\obj\Debug\Connex\Connex_Overview_Page.baml
+D:\Projects\Drago\DragoAdmin\DragoAdminWPF\DragoAdminWPF\bin\Debug\Newtonsoft.Json.dll
+D:\Projects\Drago\DragoAdmin\DragoAdminWPF\DragoAdminWPF\bin\Debug\System.Net.Http.Extensions.dll
+D:\Projects\Drago\DragoAdmin\DragoAdminWPF\DragoAdminWPF\bin\Debug\System.Net.Http.Formatting.dll
+D:\Projects\Drago\DragoAdmin\DragoAdminWPF\DragoAdminWPF\bin\Debug\System.Net.Http.Primitives.dll
+D:\Projects\Drago\DragoAdmin\DragoAdminWPF\DragoAdminWPF\bin\Debug\System.Web.Http.dll
+D:\Projects\Drago\DragoAdmin\DragoAdminWPF\DragoAdminWPF\bin\Debug\Newtonsoft.Json.xml
+D:\Projects\Drago\DragoAdmin\DragoAdminWPF\DragoAdminWPF\bin\Debug\System.Net.Http.Extensions.xml
+D:\Projects\Drago\DragoAdmin\DragoAdminWPF\DragoAdminWPF\bin\Debug\System.Net.Http.Formatting.xml
+D:\Projects\Drago\DragoAdmin\DragoAdminWPF\DragoAdminWPF\bin\Debug\System.Net.Http.Primitives.xml
+D:\Projects\Drago\DragoAdmin\DragoAdminWPF\DragoAdminWPF\bin\Debug\System.Web.Http.xml

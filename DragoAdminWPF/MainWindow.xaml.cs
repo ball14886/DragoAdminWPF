@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DragoAdminWPF.Connex;
+using DragoAdminWPF.Login;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,21 @@ namespace DragoAdminWPF
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void LogouButton_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow loginWindow = new LoginWindow();
+            Application.Current.MainWindow = loginWindow;
+            loginWindow.Show();
+            this.Close();
+        }
+
+        private void Connex_Click(object sender, Telerik.Windows.RadRoutedEventArgs e)
+        {
+            Connex_Overview_Page connexOverviewPage = new Connex_Overview_Page();
+            MainFrame.NavigationService.RemoveBackEntry();
+            MainFrame.Navigate(connexOverviewPage);
         }
     }
 }
