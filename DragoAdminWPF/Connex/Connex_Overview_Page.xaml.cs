@@ -1,5 +1,6 @@
 ﻿using DragoAdminWPF.Models;
 using DragoAdminWPF.Provider;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Telerik.Windows.Controls;
+using Microsoft.WindowsAPICodePack.Dialogs;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace DragoAdminWPF.Connex
 {
@@ -52,8 +56,8 @@ namespace DragoAdminWPF.Connex
             {
                 BusyIndicator.IsBusy = true;
                 BindData(searchKeyWord);
-                BusyIndicator.IsBusy = false;
             });
+            BusyIndicator.IsBusy = false;
         }
 
         private void SearchTextBox_LostFocus(object sender, RoutedEventArgs e)
@@ -102,12 +106,12 @@ namespace DragoAdminWPF.Connex
                 dragoConnexID = (dragoConnexButton.DataContext as DragoConnex).DragoConnexID ?? "";
                 if (!string.IsNullOrEmpty(dragoConnexID))
                 {
-                    DragoConnex target = GetDragoconnexAsync(dragoConnexID).Result;
+                    DragoConnex target = dragoConnexes.SingleOrDefault(x => x.DragoConnexID == dragoConnexID);
                     if (target != null)
                     {
                         if (string.IsNullOrEmpty(target.DragoSetting))
                         {
-                            MessageBox.Show("DragoConnex has no Setting specified"
+                            MessageBox.Show("DragoConnex has no setting specified"
                                             , "Create Config Files"
                                             , MessageBoxButton.OK
                                             , MessageBoxImage.Warning);
@@ -115,7 +119,6 @@ namespace DragoAdminWPF.Connex
                         else
                         {
                             CreateConfigFile(target.DragoSetting, target.DragoConnexID);
-                            ///continue fixing config file
                         }
                     }
                 }
@@ -137,12 +140,14 @@ namespace DragoAdminWPF.Connex
 
         async void CreateConfigFile(string setting, string dragoConnexCode)
         {
-            DialogResult result = FolderBrowserDialog.ShowDialog();
+            var dialog = new CommonOpenFileDialog();
+            dialog.IsFolderPicker = true;
+            CommonFileDialogResult result = dialog.ShowDialog();
 
-            if (result == DialogResult.OK)
+            if (result == CommonFileDialogResult.Ok)
             {
-                var configFolder = FolderBrowserDialog.SelectedPath + @"\Config" + dragoConnexCode + @"\";
-                System.IO.Directory.CreateDirectory(configFolder);
+                var configFolder = $"{dialog.FileName} \\Config {dragoConnexCode}\\";
+                Directory.CreateDirectory(configFolder);
 
                 Dictionary<string, string> dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(setting);
                 string toWrite = "";
@@ -150,22 +155,21 @@ namespace DragoAdminWPF.Connex
                 {
                     if (string.IsNullOrEmpty(item.Value))
                     {
-                        toWrite += "\"" + System.Environment.NewLine;
+                        toWrite += "\"" + Environment.NewLine;
                     }
                     else
                     {
                         if (!item.Key.Equals("AlarmSetting") || !item.Key.Equals("AMRSetting"))
                         {
-                            toWrite += item.Value + System.Environment.NewLine;
+                            toWrite += item.Value + Environment.NewLine;
                         }
                     }
                 }
 
                 toWrite = toWrite.Remove(toWrite.Length - 1);
-                toWrite += System.Environment.NewLine;
+                toWrite += Environment.NewLine;
                 File.WriteAllText(configFolder + "NETWORK.csv", toWrite);
-                MeterProvider MeterProvider = new Provider.MeterProvider();
-                var toWriteWatt = "";
+                MeterProvider MeterProvider = new MeterProvider();
                 toWrite = "";
                 var meters = await MeterProvider.GetMetersAsync("http://dragoservices.azurewebsites.net/api/DragoAdmin/Meters/DragoConnex/" + dragoConnexCode);
                 if (meters != null)
@@ -181,7 +185,7 @@ namespace DragoAdminWPF.Connex
                         }
 
                         toWrite = toWrite.Remove(toWrite.Length - 1);
-                        toWrite += System.Environment.NewLine;
+                        toWrite += Environment.NewLine;
                     }
 
                     File.WriteAllText(configFolder + "METER.csv", toWrite);
@@ -196,7 +200,7 @@ namespace DragoAdminWPF.Connex
                         toWrite += item.Value + ",";
                 }
                 toWrite = toWrite.Remove(toWrite.Length - 1);
-                toWrite += System.Environment.NewLine;
+                toWrite += Environment.NewLine;
 
                 File.WriteAllText(configFolder + "ALARM.csv", toWrite);
 
@@ -205,11 +209,10 @@ namespace DragoAdminWPF.Connex
                 foreach (var item in dictAMRSetting)
                 {
                     if (String.IsNullOrEmpty(item.Value))
-                        toWrite += "0" + System.Environment.NewLine;
+                        toWrite += "0" + Environment.NewLine;
                     else
-                        toWrite += item.Value + System.Environment.NewLine;
+                        toWrite += item.Value + Environment.NewLine;
                 }
-                //toWrite = toWrite.Remove(toWrite.Length - 1);
                 File.WriteAllText(configFolder + "AMR.csv", toWrite);
             }
         }

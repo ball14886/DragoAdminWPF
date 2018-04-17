@@ -40,6 +40,12 @@
       <HintPath>..\lib\RCWPF\2017.2.614.45.NoXaml\EQATEC.Analytics.Monitor.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Core.1.1.1\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Shell.1.1.1\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -348,12 +354,14 @@
     </Compile>
     <Compile Include="Models\Area.cs" />
     <Compile Include="Models\DragoConnex.cs" />
+    <Compile Include="Models\Meter.cs" />
     <Compile Include="Models\Owner.cs" />
     <Compile Include="Models\Site.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Provider\AuthenticationProvider.cs" />
     <Compile Include="Provider\BaseAPIProvider.cs" />
     <Compile Include="Provider\DragoConnexProvider.cs" />
+    <Compile Include="Provider\MeterProvider.cs" />
     <Page Include="Connex\Connex_Config_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

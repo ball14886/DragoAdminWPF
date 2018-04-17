@@ -54,6 +54,7 @@ namespace DragoAdminWPF.Provider
             return null;
         }
 
+        [Obsolete] //Ball : Doesn't work, don't know why
         public async Task<DragoConnex> GetDragoconnexAsync(string m_dragoConnexID)
         {
             string path = "http://dragoservices.azurewebsites.net/api/DragoAdmin/DragoConnex/" + m_dragoConnexID;

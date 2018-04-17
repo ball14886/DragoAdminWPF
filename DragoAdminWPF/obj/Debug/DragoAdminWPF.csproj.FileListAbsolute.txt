@@ -167,3 +167,7 @@ D:\Projects\Drago\DragoAdmin\DragoAdminWPF\DragoAdminWPF\bin\Debug\System.Net.Ht
 D:\Projects\Drago\DragoAdmin\DragoAdminWPF\DragoAdminWPF\bin\Debug\System.Net.Http.Formatting.xml
 D:\Projects\Drago\DragoAdmin\DragoAdminWPF\DragoAdminWPF\bin\Debug\System.Net.Http.Primitives.xml
 D:\Projects\Drago\DragoAdmin\DragoAdminWPF\DragoAdminWPF\bin\Debug\System.Web.Http.xml
+D:\Projects\Drago\DragoAdmin\DragoAdminWPF\DragoAdminWPF\bin\Debug\Microsoft.WindowsAPICodePack.dll
+D:\Projects\Drago\DragoAdmin\DragoAdminWPF\DragoAdminWPF\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+D:\Projects\Drago\DragoAdmin\DragoAdminWPF\DragoAdminWPF\bin\Debug\Microsoft.WindowsAPICodePack.xml
+D:\Projects\Drago\DragoAdmin\DragoAdminWPF\DragoAdminWPF\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
