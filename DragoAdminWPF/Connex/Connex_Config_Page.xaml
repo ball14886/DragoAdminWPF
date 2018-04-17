@@ -10,62 +10,645 @@
       Title="Connex_Config_Page">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Row="0"
-              Grid.Column="0"
-              Grid.ColumnSpan="3"
-              Margin="10">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="auto"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Text="Area"
-                       Grid.Row="0"
-                       Grid.Column="0"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Right"
-                       Margin="0,0,10,0"/>
-            <telerik:RadComboBox Name="AraaCombobox"
-                                 Grid.Row="0"
-                                 Grid.Column="1"
-                                 Margin="0,0,5,0"/>
-            <TextBlock Text="DragoConnex ID"
-                       Grid.Row="1"
-                       Grid.Column="0"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Right"
-                       Margin="0,5,10,0"/>
-            <TextBox Name="DragoConnexIDTextBox"
-                     Grid.Row="1"
-                     Grid.Column="1"
-                     Margin="0,5,5,0"/>
-            <Button Name="AddButton"
-                    Grid.Row="1"
-                    Grid.Column="2"
-                    Content="Add"
-                    Width="200"
-                    Margin="0,5,5,0"/>
-            <Button Name="ResetButton"
-                    Grid.Row="1"
-                    Grid.Column="3"
-                    Content="Reset"
-                    Width="200"
-                    Margin="0,5,0,0"/>
-        </Grid>
+        <ScrollViewer>
+            <Grid Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Row="0"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="2"
+                      Margin="10,10,5,5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Area"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="0,0,5,0"/>
+                    <telerik:RadComboBox Name="AraaCombobox"
+                                         Grid.Row="0"
+                                         Grid.Column="1"
+                                         Margin="0,0,0,0"/>
+                    <TextBlock Text="DragoConnex ID"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="0,5,5,0"/>
+                    <TextBox Name="DragoConnexIDTextBox"
+                             Grid.Row="1"
+                             Grid.Column="1"
+                             Margin="0,5,0,0"/>
+                </Grid>
+                <Grid Grid.Row="0"
+                      Grid.Column="2"
+                      Margin="0,0,10,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="AddButton"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Content="Add"
+                            Margin="0,5,5,5"/>
+                    <Button Name="ResetButton"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Content="Reset"
+                            Margin="0,5,1,5"/>
+                </Grid>
+                <Border Grid.Row="1"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        BorderThickness="1"
+                        BorderBrush="Black"
+                        Margin="10,0,5,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="6"
+                           Text="Network"
+                           Background="Gray"
+                           Foreground="White"
+                           VerticalAlignment="Center"
+                           TextAlignment="Center"
+                           Padding="10"/>
+                        <Grid Grid.Row="1"
+                      Grid.Column="0"
+                      Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="IP"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="0,0,10,2.5"/>
+                            <TextBox Name="IPTextBox"
+                             Grid.Row="0"
+                             Grid.Column="1"
+                             Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Cloud"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="2.5,0,10,2.5"/>
+                            <TextBox Name="CloudTextBox"
+                             Grid.Row="1"
+                             Grid.Column="1"
+                             Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Port"
+                               Grid.Row="2"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="2.5,0,10,2.5"/>
+                            <TextBox Name="PortTextBox"
+                             Grid.Row="2"
+                             Grid.Column="1"
+                             Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="FTP User"
+                               Grid.Row="3"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="2.5,0,10,2.5"/>
+                            <TextBox Name="FTPUserTextBox"
+                             Grid.Row="3"
+                             Grid.Column="1"
+                             Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="UTC"
+                               Grid.Row="4"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="2.5,0,10,2.5"/>
+                            <telerik:RadComboBox Name="UTCComboBox"
+                                         Grid.Row="4"
+                                         Grid.Column="1"
+                                         Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Router Gateway IP"
+                               Grid.Row="0"
+                               Grid.Column="2"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="0,0,10,2.5"/>
+                            <TextBox Name="RouterGatewayIPTextBox"
+                             Grid.Row="0"
+                             Grid.Column="3"
+                             Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Router Subnet"
+                               Grid.Row="1"
+                               Grid.Column="2"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="2.5,0,10,2.5"/>
+                            <TextBox Name="RouterSubnetTextBox"
+                             Grid.Row="1"
+                             Grid.Column="3"
+                             Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="FTP Server"
+                               Grid.Row="2"
+                               Grid.Column="2"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="2.5,0,10,2.5"/>
+                            <TextBox Name="FTPServerTextBox"
+                             Grid.Row="2"
+                             Grid.Column="3"
+                             Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="FTP Password"
+                               Grid.Row="3"
+                               Grid.Column="2"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="2.5,0,10,2.5"/>
+                            <TextBox Name="FTPPasswordTextBox"
+                             Grid.Row="3"
+                             Grid.Column="3"
+                             Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Cloud Upload"
+                               Grid.Row="4"
+                               Grid.Column="2"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="2.5,0,10,2.5"/>
+                            <telerik:RadComboBox Name="CloudUploadComboBox"
+                                         Grid.Row="4"
+                                         Grid.Column="3"
+                                         Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Router DNS1"
+                               Grid.Row="0"
+                               Grid.Column="4"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="0,0,10,2.5"/>
+                            <TextBox Name="RouterDNS1TextBox"
+                             Grid.Row="0"
+                             Grid.Column="5"
+                             Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Router DNS2"
+                               Grid.Row="1"
+                               Grid.Column="4"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="2.5,0,10,2.5"/>
+                            <TextBox Name="RouterDNS2TextBox"
+                             Grid.Row="1"
+                             Grid.Column="5"
+                             Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="FTP Port"
+                               Grid.Row="2"
+                               Grid.Column="4"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="2.5,0,10,2.5"/>
+                            <TextBox Name="FTPPortTextBox"
+                             Grid.Row="2"
+                             Grid.Column="5"
+                             Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Cloud Port"
+                               Grid.Row="3"
+                               Grid.Column="4"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="2.5,0,10,2.5"/>
+                            <TextBox Name="CloudPortTextBox"
+                             Grid.Row="3"
+                             Grid.Column="5"
+                             Margin="2.5,0,10,2.5"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="2"
+                        Grid.Column="0"
+                        BorderThickness="1"
+                        BorderBrush="Black"
+                        Margin="10,5,2.5,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="6"
+                           Text="Alarm"
+                           Background="Gray"
+                           Foreground="White"
+                           VerticalAlignment="Center"
+                           TextAlignment="Center"
+                           Padding="10"/>
+                        <Grid Grid.Row="1"
+                      Grid.Column="0"
+                      Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Alarm No."
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="0,0,10,2.5"/>
+                            <telerik:RadComboBox Name="AlarmNoComboBox"
+                                         Grid.Row="0"
+                                         Grid.Column="1"
+                                         Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Month"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="2.5,0,10,2.5"/>
+                            <telerik:RadComboBox Name="MonthComboBox"
+                                         Grid.Row="1"
+                                         Grid.Column="1"
+                                         Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Day"
+                               Grid.Row="2"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="2.5,0,10,2.5"/>
+                            <telerik:RadComboBox Name="DayComboBox"
+                                         Grid.Row="2"
+                                         Grid.Column="1"
+                                         Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Date"
+                               Grid.Row="3"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="2.5,0,10,2.5"/>
+                            <telerik:RadComboBox Name="DateComboBox"
+                                         Grid.Row="3"
+                                         Grid.Column="1"
+                                         Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="AlarmType"
+                               Grid.Row="0"
+                               Grid.Column="2"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="2.5,0,10,2.5"/>
+                            <telerik:RadComboBox Name="AlarmTypeComboBox"
+                                         Grid.Row="0"
+                                         Grid.Column="3"
+                                         Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Hour"
+                               Grid.Row="1"
+                               Grid.Column="2"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="2.5,0,10,2.5"/>
+                            <telerik:RadComboBox Name="HourComboBox"
+                                         Grid.Row="1"
+                                         Grid.Column="3"
+                                         Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Minute"
+                               Grid.Row="2"
+                               Grid.Column="2"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="2.5,0,10,2.5"/>
+                            <telerik:RadComboBox Name="MinuteComboBox"
+                                         Grid.Row="2"
+                                         Grid.Column="3"
+                                         Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Second"
+                               Grid.Row="3"
+                               Grid.Column="2"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               Margin="2.5,0,10,2.5"/>
+                            <telerik:RadComboBox Name="SecondComboBox"
+                                         Grid.Row="3"
+                                         Grid.Column="3"
+                                         Margin="2.5,0,10,2.5"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="2"
+                        Grid.Column="1"
+                        BorderThickness="1"
+                        BorderBrush="Black"
+                        Margin="2.5,5,5,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="6"
+                           Text="AMR"
+                           Background="Gray"
+                           Foreground="White"
+                           VerticalAlignment="Center"
+                           TextAlignment="Center"
+                           Padding="10"/>
+                        <Grid Grid.Row="1"
+                      Grid.Column="0"
+                      Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Language"
+                                       Grid.Row="0"
+                                       Grid.Column="0"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Margin="0,0,10,2.5"/>
+                            <telerik:RadComboBox Name="LanguageComboBox"
+                                                 Grid.Row="0"
+                                                 Grid.Column="1"
+                                                 Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Log Time"
+                                       Grid.Row="1"
+                                       Grid.Column="0"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Margin="2.5,0,10,2.5"/>
+                            <telerik:RadComboBox Name="LogTimeComboBox"
+                                                 Grid.Row="1"
+                                                 Grid.Column="1"
+                                                 Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="FTP"
+                                       Grid.Row="2"
+                                       Grid.Column="0"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Margin="2.5,0,10,2.5"/>
+                            <telerik:RadComboBox Name="FTPComboBox"
+                                                 Grid.Row="2"
+                                                 Grid.Column="1"
+                                                 Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Check Update"
+                                       Grid.Row="3"
+                                       Grid.Column="0"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Margin="2.5,0,10,2.5"/>
+                            <telerik:RadComboBox Name="CheckUpdateComboBox"
+                                                 Grid.Row="3"
+                                                 Grid.Column="1"
+                                                 Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Email Alert"
+                                       Grid.Row="0"
+                                       Grid.Column="2"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Margin="2.5,0,10,2.5"/>
+                            <telerik:RadComboBox Name="EmailAlertComboBox"
+                                                 Grid.Row="0"
+                                                 Grid.Column="3"
+                                                 Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Email After Reset"
+                                       Grid.Row="1"
+                                       Grid.Column="2"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Margin="2.5,0,10,2.5"/>
+                            <telerik:RadComboBox Name="EmailAfterResetComboBox"
+                                                 Grid.Row="1"
+                                                 Grid.Column="3"
+                                                 Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Email Report"
+                                       Grid.Row="2"
+                                       Grid.Column="2"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Margin="2.5,0,10,2.5"/>
+                            <telerik:RadComboBox Name="EmailAfterReportComboBox"
+                                                 Grid.Row="2"
+                                                 Grid.Column="3"
+                                                 Margin="2.5,0,10,2.5"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="1"
+                        Grid.Column="5"
+                        Grid.RowSpan="2"
+                        BorderThickness="1"
+                        BorderBrush="Black"
+                        Margin="0,0,10,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="6"
+                           Text="Email"
+                           Background="Gray"
+                           Foreground="White"
+                           VerticalAlignment="Center"
+                           TextAlignment="Center"
+                           Padding="10"/>
+                        <Grid Grid.Row="1"
+                      Grid.Column="0"
+                      Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Mail Server"
+                                       Grid.Row="0"
+                                       Grid.Column="0"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Margin="0,0,10,2.5"/>
+                            <TextBox Name="MailServerTextBox"
+                                     Grid.Row="0"
+                                     Grid.Column="1"
+                                     Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Mail Port"
+                                       Grid.Row="1"
+                                       Grid.Column="0"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Margin="2.5,0,10,2.5"/>
+                            <TextBox Name="MailPortTextBox"
+                                     Grid.Row="1"
+                                     Grid.Column="1"
+                                     Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Sender Email"
+                                       Grid.Row="2"
+                                       Grid.Column="0"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Margin="2.5,0,10,2.5"/>
+                            <TextBox Name="SenderEmailTextBox"
+                                     Grid.Row="2"
+                                     Grid.Column="1"
+                                     Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Sender Password"
+                                       Grid.Row="3"
+                                       Grid.Column="0"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Margin="2.5,0,10,2.5"/>
+                            <TextBox Name="SenderPasswordTextBox"
+                                     Grid.Row="3"
+                                     Grid.Column="1"
+                                     Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="SNTP Server"
+                                       Grid.Row="4"
+                                       Grid.Column="0"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Margin="2.5,0,10,2.5"/>
+                            <TextBox Name="SNTPServerTextBox"
+                                     Grid.Row="4"
+                                     Grid.Column="1"
+                                     Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Email 1 (Primary)"
+                                       Grid.Row="5"
+                                       Grid.Column="0"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Margin="2.5,0,10,2.5"/>
+                            <TextBox Name="Email1TextBox"
+                                     Grid.Row="5"
+                                     Grid.Column="1"
+                                     Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Email 2"
+                                       Grid.Row="6"
+                                       Grid.Column="0"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Margin="2.5,0,10,2.5"/>
+                            <TextBox Name="Email2TextBox"
+                                     Grid.Row="6"
+                                     Grid.Column="1"
+                                     Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Email 3"
+                                       Grid.Row="7"
+                                       Grid.Column="0"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Margin="2.5,0,10,2.5"/>
+                            <TextBox Name="Email3TextBox"
+                                     Grid.Row="7"
+                                     Grid.Column="1"
+                                     Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Email 4"
+                                       Grid.Row="8"
+                                       Grid.Column="0"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Margin="2.5,0,10,2.5"/>
+                            <TextBox Name="Email4TextBox"
+                                     Grid.Row="8"
+                                     Grid.Column="1"
+                                     Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Email 5"
+                                       Grid.Row="9"
+                                       Grid.Column="0"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Margin="2.5,0,10,2.5"/>
+                            <TextBox Name="Email5TextBox"
+                                     Grid.Row="9"
+                                     Grid.Column="1"
+                                     Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Email 6"
+                                       Grid.Row="10"
+                                       Grid.Column="0"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Margin="2.5,0,10,2.5"/>
+                            <TextBox Name="Email6TextBox"
+                                     Grid.Row="10"
+                                     Grid.Column="1"
+                                     Margin="2.5,0,10,2.5"/>
+                            <TextBlock Text="Email 7"
+                                       Grid.Row="11"
+                                       Grid.Column="0"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Right"
+                                       Margin="2.5,0,10,2.5"/>
+                            <TextBox Name="Email7TextBox"
+                                     Grid.Row="11"
+                                     Grid.Column="1"
+                                     Margin="2.5,0,10,2.5"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </Page>
