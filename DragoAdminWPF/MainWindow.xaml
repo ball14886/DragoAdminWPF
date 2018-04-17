@@ -33,8 +33,14 @@
             <telerik:RadMenuItem Name="Area" 
                                  Header="Area"/>
             <telerik:RadMenuItem Name="Connex" 
-                                 Header="Connex"
-                                 Click="Connex_Click"/>
+                                 Header="Connex">
+                <telerik:RadMenuItem Name="Overview"
+                                     Header="Overview"
+                                     Click="ConnexOverview_Click"/>
+                <telerik:RadMenuItem Name="Config"
+                                     Header="Config"
+                                     Click="ConnexConfig_Click"/>
+            </telerik:RadMenuItem>
             <telerik:RadMenuItem Name="Meter" 
                                  Header="Meter"/>
             <telerik:RadMenuItem Name="Electric" 

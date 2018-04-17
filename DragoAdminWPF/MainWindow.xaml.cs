@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace DragoAdminWPF
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -35,11 +32,18 @@ namespace DragoAdminWPF
             this.Close();
         }
 
-        private void Connex_Click(object sender, Telerik.Windows.RadRoutedEventArgs e)
+        private void ConnexOverview_Click(object sender, Telerik.Windows.RadRoutedEventArgs e)
         {
             Connex_Overview_Page connexOverviewPage = new Connex_Overview_Page();
             MainFrame.NavigationService.RemoveBackEntry();
             MainFrame.Navigate(connexOverviewPage);
+        }
+
+        private void ConnexConfig_Click(object sender, Telerik.Windows.RadRoutedEventArgs e)
+        {
+            Connex_Config_Page connexConfigPage = new Connex_Config_Page();
+            MainFrame.NavigationService.RemoveBackEntry();
+            MainFrame.Navigate(connexConfigPage);
         }
     }
 }

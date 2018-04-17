@@ -4,32 +4,68 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DragoAdminWPF.Connex"
+      xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Connex_Config_Page">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Row="0"
               Grid.Column="0"
-              Grid.ColumnSpan="2">
+              Grid.ColumnSpan="3"
+              Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
+            <TextBlock Text="Area"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Right"
+                       Margin="0,0,10,0"/>
+            <telerik:RadComboBox Name="AraaCombobox"
+                                 Grid.Row="0"
+                                 Grid.Column="1"
+                                 Margin="0,0,5,0"/>
+            <TextBlock Text="DragoConnex ID"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Right"
+                       Margin="0,5,10,0"/>
+            <TextBox Name="DragoConnexIDTextBox"
+                     Grid.Row="1"
+                     Grid.Column="1"
+                     Margin="0,5,5,0"/>
+            <Button Name="AddButton"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Content="Add"
+                    Width="200"
+                    Margin="0,5,5,0"/>
+            <Button Name="ResetButton"
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    Content="Reset"
+                    Width="200"
+                    Margin="0,5,0,0"/>
         </Grid>
     </Grid>
 </Page>
