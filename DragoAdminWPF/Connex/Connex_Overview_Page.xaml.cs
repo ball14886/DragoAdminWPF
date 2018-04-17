@@ -216,5 +216,33 @@ namespace DragoAdminWPF.Connex
                 File.WriteAllText(configFolder + "AMR.csv", toWrite);
             }
         }
+
+        private void EditConnexButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Confirm edit DragoConnex?"
+                                                     , "Edit DragoConnex"
+                                                     , MessageBoxButton.YesNo
+                                                     , MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                string dragoConnexID = "";
+                RadButton dragoConnexButton = sender as RadButton;
+                DragoConnex dragoConnex = (dragoConnexButton.DataContext as DragoConnex);
+                dragoConnexID = dragoConnex.DragoConnexID ?? "";
+
+                if (!string.IsNullOrEmpty(dragoConnexID))
+                {
+                    Dictionary<string, string> dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(dragoConnex.DragoSetting);
+
+                    MainWindow mainWindow = Application.Current.MainWindow as MainWindow;
+                    var MainFrame = mainWindow.MainFrame;
+
+                    Connex_Config_Page connexConfigPage = new Connex_Config_Page(dragoConnexID);
+                    MainFrame.NavigationService.RemoveBackEntry();
+                    MainFrame.Navigate(connexConfigPage);
+                }
+            }
+        }
     }
 }

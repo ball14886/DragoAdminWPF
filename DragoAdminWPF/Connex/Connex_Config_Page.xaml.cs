@@ -28,6 +28,15 @@ namespace DragoAdminWPF.Connex
             });
         }
 
+        public Connex_Config_Page(string dragoConnexID)
+        {
+            InitializeComponent();
+            Dispatcher.Invoke(() =>
+            {
+                BindDDLAsync();
+            });
+        }
+
         private async Task BindDDLAsync()
         {
             List<string> state = AppProvider.EnableStates;
@@ -59,6 +68,15 @@ namespace DragoAdminWPF.Connex
 
             var buildings = await new BuildingProvider().GetBuildingsAsync();
             AreaCombobox.ItemsSource = buildings;
+        }
+
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (!string.IsNullOrEmpty(textBox.Text))
+            {
+                textBox.Text = textBox.Text.Trim();
+            }
         }
     }
 }

@@ -54,7 +54,8 @@
                     <TextBox Name="DragoConnexIDTextBox"
                              Grid.Row="1"
                              Grid.Column="1"
-                             Margin="0,5,0,0"/>
+                             Margin="0,5,0,0"
+                             LostFocus="TextBox_LostFocus"/>
                 </Grid>
                 <Grid Grid.Row="0"
                       Grid.Column="2"
@@ -125,7 +126,8 @@
                             <TextBox Name="IPTextBox"
                                      Grid.Row="0"
                                      Grid.Column="1"
-                                     Margin="2.5,0,10,2.5"/>
+                                     Margin="2.5,0,10,2.5"
+                                     LostFocus="TextBox_LostFocus"/>
                             <TextBlock Text="Cloud"
                                        Grid.Row="1"
                                        Grid.Column="0"
@@ -135,7 +137,8 @@
                             <TextBox Name="CloudTextBox"
                                      Grid.Row="1"
                                      Grid.Column="1"
-                                     Margin="2.5,0,10,2.5"/>
+                                     Margin="2.5,0,10,2.5"
+                                     LostFocus="TextBox_LostFocus"/>
                             <TextBlock Text="Port"
                                        Grid.Row="2"
                                        Grid.Column="0"
@@ -145,7 +148,8 @@
                             <TextBox Name="PortTextBox"
                                      Grid.Row="2"
                                      Grid.Column="1"
-                                     Margin="2.5,0,10,2.5"/>
+                                     Margin="2.5,0,10,2.5"
+                                     LostFocus="TextBox_LostFocus"/>
                             <TextBlock Text="FTP User"
                                        Grid.Row="3"
                                        Grid.Column="0"
@@ -155,7 +159,8 @@
                             <TextBox Name="FTPUserTextBox"
                                      Grid.Row="3"
                                      Grid.Column="1"
-                                     Margin="2.5,0,10,2.5"/>
+                                     Margin="2.5,0,10,2.5"
+                                     LostFocus="TextBox_LostFocus"/>
                             <TextBlock Text="UTC"
                                        Grid.Row="4"
                                        Grid.Column="0"
@@ -175,7 +180,8 @@
                             <TextBox Name="RouterGatewayIPTextBox"
                                      Grid.Row="0"
                                      Grid.Column="3"
-                                     Margin="2.5,0,10,2.5"/>
+                                     Margin="2.5,0,10,2.5"
+                                     LostFocus="TextBox_LostFocus"/>
                             <TextBlock Text="Router Subnet"
                                        Grid.Row="1"
                                        Grid.Column="2"
@@ -185,7 +191,8 @@
                             <TextBox Name="RouterSubnetTextBox"
                                      Grid.Row="1"
                                      Grid.Column="3"
-                                     Margin="2.5,0,10,2.5"/>
+                                     Margin="2.5,0,10,2.5"
+                                     LostFocus="TextBox_LostFocus"/>
                             <TextBlock Text="FTP Server"
                                        Grid.Row="2"
                                        Grid.Column="2"
@@ -195,7 +202,8 @@
                             <TextBox Name="FTPServerTextBox"
                                      Grid.Row="2"
                                      Grid.Column="3"
-                                     Margin="2.5,0,10,2.5"/>
+                                     Margin="2.5,0,10,2.5"
+                                     LostFocus="TextBox_LostFocus"/>
                             <TextBlock Text="FTP Password"
                                        Grid.Row="3"
                                        Grid.Column="2"
@@ -205,7 +213,8 @@
                             <TextBox Name="FTPPasswordTextBox"
                                      Grid.Row="3"
                                      Grid.Column="3"
-                                     Margin="2.5,0,10,2.5"/>
+                                     Margin="2.5,0,10,2.5"
+                                     LostFocus="TextBox_LostFocus"/>
                             <TextBlock Text="Cloud Upload"
                                        Grid.Row="4"
                                        Grid.Column="2"
@@ -225,7 +234,8 @@
                             <TextBox Name="RouterDNS1TextBox"
                                      Grid.Row="0"
                                      Grid.Column="5"
-                                     Margin="2.5,0,10,2.5"/>
+                                     Margin="2.5,0,10,2.5"
+                                     LostFocus="TextBox_LostFocus"/>
                             <TextBlock Text="Router DNS2"
                                        Grid.Row="1"
                                        Grid.Column="4"
@@ -235,7 +245,8 @@
                             <TextBox Name="RouterDNS2TextBox"
                                      Grid.Row="1"
                                      Grid.Column="5"
-                                     Margin="2.5,0,10,2.5"/>
+                                     Margin="2.5,0,10,2.5"
+                                     LostFocus="TextBox_LostFocus"/>
                             <TextBlock Text="FTP Port"
                                        Grid.Row="2"
                                        Grid.Column="4"
@@ -245,7 +256,8 @@
                             <TextBox Name="FTPPortTextBox"
                                      Grid.Row="2"
                                      Grid.Column="5"
-                                     Margin="2.5,0,10,2.5"/>
+                                     Margin="2.5,0,10,2.5"
+                                     LostFocus="TextBox_LostFocus"/>
                             <TextBlock Text="Cloud Port"
                                        Grid.Row="3"
                                        Grid.Column="4"
@@ -255,7 +267,8 @@
                             <TextBox Name="CloudPortTextBox"
                                      Grid.Row="3"
                                      Grid.Column="5"
-                                     Margin="2.5,0,10,2.5"/>
+                                     Margin="2.5,0,10,2.5"
+                                     LostFocus="TextBox_LostFocus"/>
                         </Grid>
                     </Grid>
                 </Border>
@@ -300,10 +313,11 @@
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Right"
                                        Margin="0,0,10,2.5"/>
-                            <telerik:RadComboBox Name="AlarmNoComboBox"
-                                                 Grid.Row="0"
-                                                 Grid.Column="1"
-                                                 Margin="2.5,0,10,2.5"/>
+                            <TextBox Name="AlarmTextBox"
+                                     Grid.Row="0"
+                                     Grid.Column="1"
+                                     Margin="2.5,0,10,2.5"
+                                     LostFocus="TextBox_LostFocus"/>
                             <TextBlock Text="Month"
                                        Grid.Row="1"
                                        Grid.Column="0"
@@ -335,7 +349,7 @@
                                                  Grid.Row="3"
                                                  Grid.Column="1"
                                                  Margin="2.5,0,10,2.5"/>
-                            <TextBlock Text="AlarmType"
+                            <TextBlock Text="Alarm Type"
                                        Grid.Row="0"
                                        Grid.Column="2"
                                        VerticalAlignment="Center"
@@ -536,7 +550,8 @@
                             <TextBox Name="MailServerTextBox"
                                      Grid.Row="0"
                                      Grid.Column="1"
-                                     Margin="2.5,0,10,2.5"/>
+                                     Margin="2.5,0,10,2.5"
+                                     LostFocus="TextBox_LostFocus"/>
                             <TextBlock Text="Mail Port"
                                        Grid.Row="1"
                                        Grid.Column="0"
@@ -546,7 +561,8 @@
                             <TextBox Name="MailPortTextBox"
                                      Grid.Row="1"
                                      Grid.Column="1"
-                                     Margin="2.5,0,10,2.5"/>
+                                     Margin="2.5,0,10,2.5"
+                                     LostFocus="TextBox_LostFocus"/>
                             <TextBlock Text="Sender Email"
                                        Grid.Row="2"
                                        Grid.Column="0"
@@ -556,7 +572,8 @@
                             <TextBox Name="SenderEmailTextBox"
                                      Grid.Row="2"
                                      Grid.Column="1"
-                                     Margin="2.5,0,10,2.5"/>
+                                     Margin="2.5,0,10,2.5"
+                                     LostFocus="TextBox_LostFocus"/>
                             <TextBlock Text="Sender Password"
                                        Grid.Row="3"
                                        Grid.Column="0"
@@ -566,7 +583,8 @@
                             <TextBox Name="SenderPasswordTextBox"
                                      Grid.Row="3"
                                      Grid.Column="1"
-                                     Margin="2.5,0,10,2.5"/>
+                                     Margin="2.5,0,10,2.5"
+                                     LostFocus="TextBox_LostFocus"/>
                             <TextBlock Text="SNTP Server"
                                        Grid.Row="4"
                                        Grid.Column="0"
@@ -576,7 +594,8 @@
                             <TextBox Name="SNTPServerTextBox"
                                      Grid.Row="4"
                                      Grid.Column="1"
-                                     Margin="2.5,0,10,2.5"/>
+                                     Margin="2.5,0,10,2.5"
+                                     LostFocus="TextBox_LostFocus"/>
                             <TextBlock Text="Email 1 (Primary)"
                                        Grid.Row="5"
                                        Grid.Column="0"
@@ -586,7 +605,8 @@
                             <TextBox Name="Email1TextBox"
                                      Grid.Row="5"
                                      Grid.Column="1"
-                                     Margin="2.5,0,10,2.5"/>
+                                     Margin="2.5,0,10,2.5"
+                                     LostFocus="TextBox_LostFocus"/>
                             <TextBlock Text="Email 2"
                                        Grid.Row="6"
                                        Grid.Column="0"
@@ -596,7 +616,8 @@
                             <TextBox Name="Email2TextBox"
                                      Grid.Row="6"
                                      Grid.Column="1"
-                                     Margin="2.5,0,10,2.5"/>
+                                     Margin="2.5,0,10,2.5"
+                                     LostFocus="TextBox_LostFocus"/>
                             <TextBlock Text="Email 3"
                                        Grid.Row="7"
                                        Grid.Column="0"
@@ -606,7 +627,8 @@
                             <TextBox Name="Email3TextBox"
                                      Grid.Row="7"
                                      Grid.Column="1"
-                                     Margin="2.5,0,10,2.5"/>
+                                     Margin="2.5,0,10,2.5"
+                                     LostFocus="TextBox_LostFocus"/>
                             <TextBlock Text="Email 4"
                                        Grid.Row="8"
                                        Grid.Column="0"
@@ -616,7 +638,8 @@
                             <TextBox Name="Email4TextBox"
                                      Grid.Row="8"
                                      Grid.Column="1"
-                                     Margin="2.5,0,10,2.5"/>
+                                     Margin="2.5,0,10,2.5"
+                                     LostFocus="TextBox_LostFocus"/>
                             <TextBlock Text="Email 5"
                                        Grid.Row="9"
                                        Grid.Column="0"
@@ -626,7 +649,8 @@
                             <TextBox Name="Email5TextBox"
                                      Grid.Row="9"
                                      Grid.Column="1"
-                                     Margin="2.5,0,10,2.5"/>
+                                     Margin="2.5,0,10,2.5"
+                                     LostFocus="TextBox_LostFocus"/>
                             <TextBlock Text="Email 6"
                                        Grid.Row="10"
                                        Grid.Column="0"
@@ -636,7 +660,8 @@
                             <TextBox Name="Email6TextBox"
                                      Grid.Row="10"
                                      Grid.Column="1"
-                                     Margin="2.5,0,10,2.5"/>
+                                     Margin="2.5,0,10,2.5"
+                                     LostFocus="TextBox_LostFocus"/>
                             <TextBlock Text="Email 7"
                                        Grid.Row="11"
                                        Grid.Column="0"
@@ -646,7 +671,8 @@
                             <TextBox Name="Email7TextBox"
                                      Grid.Row="11"
                                      Grid.Column="1"
-                                     Margin="2.5,0,10,2.5"/>
+                                     Margin="2.5,0,10,2.5"
+                                     LostFocus="TextBox_LostFocus"/>
                         </Grid>
                     </Grid>
                 </Border>

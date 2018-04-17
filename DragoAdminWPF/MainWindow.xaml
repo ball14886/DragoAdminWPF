@@ -43,8 +43,8 @@
             </telerik:RadMenuItem>
             <telerik:RadMenuItem Name="Meter" 
                                  Header="Meter"/>
-            <telerik:RadMenuItem Name="Electric" 
-                                 Header="Electric"/>
+            <telerik:RadMenuItem Name="Electricity" 
+                                 Header="Electricity"/>
         </telerik:RadMenu>
         <Frame Grid.Row="2" 
                Name="MainFrame" 

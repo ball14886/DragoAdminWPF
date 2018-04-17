@@ -64,12 +64,13 @@
                             <telerik:GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <telerik:RadButton Name="EditConnexButton"
-                                               Width="100"
-                                               VerticalAlignment="Center"
-                                               VerticalContentAlignment="Center"
-                                               HorizontalAlignment="Center"
-                                               HorizontalContentAlignment="Center"
-                                               Content="Edit"/>
+                                                       Width="100"
+                                                       VerticalAlignment="Center"
+                                                       VerticalContentAlignment="Center"
+                                                       HorizontalAlignment="Center"
+                                                       HorizontalContentAlignment="Center"
+                                                       Content="Edit"
+                                                       Click="EditConnexButton_Click"/>
                                 </DataTemplate>
                             </telerik:GridViewColumn.CellTemplate>
                         </telerik:GridViewColumn>
